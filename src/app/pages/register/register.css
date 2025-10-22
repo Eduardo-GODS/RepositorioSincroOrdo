@@ -1,0 +1,364 @@
+/* =========================================
+   ESTILO DE AUTENTICAÇÃO ELEGANTE E MODERNO
+   ========================================= */
+
+/* Variáveis de Cores Atualizadas */
+:root {
+  --cor-vermelho: #e74c3c;
+  --cor-texto-secundario: #6c757d; /* Exemplo para a cor do texto do checkbox */
+}
+:root {
+  --cor-fundo: #f0f4f8;       /* Fundo cinza azulado suave */
+  --cor-card: #ffffff;        /* Branco puro para o card */
+  --cor-texto: #2c3e50;       /* Azul escuro para texto principal */
+  --cor-texto-secundario: #7f8c8d; /* Cinza médio para texto secundário */
+  --cor-borda: #dfe4ea;       /* Borda sutil */
+  --cor-azul: #3498db;        /* Azul vibrante para ações */
+  --cor-azul-claro: #eaf6ff;  /* Fundo para elementos azuis claros */
+  --cor-gradient-primario: linear-gradient(135deg, #3498db, #2980b9); /* Degradê para ilustrações */
+  --cor-gradient-secundario: linear-gradient(135deg, #ecf0f1, #bdc3c7); /* Degradê suave para registro */
+  --cor-erro: #e74c3c;        /* Vermelho para erros */
+  --cor-google: #dd4b39;      /* Vermelho do Google */
+  --cor-facebook: #3b5998;    /* Azul do Facebook */
+}
+
+/* Base global com a nova fonte */
+body, html {
+    font-family: 'Inter', sans-serif; /* APLICANDO A NOVA FONTE */
+    line-height: 1.6;
+    color: var(--cor-texto);
+    overflow: hidden; /* Impede o scroll vertical */
+}
+
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-fundo);
+  padding: 2rem;
+  overflow: hidden; /* Remove o scroll */
+  box-sizing: border-box; /* Garante que padding não afete o tamanho total */
+}
+
+.auth-card {
+  display: flex;
+  width: 100%;
+  max-width: 1100px; /* Um pouco maior */
+  background: var(--cor-card);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1); /* Sombra mais suave e espalhada */
+  overflow: hidden;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.auth-column {
+  flex-basis: 50%;
+  padding: 3.5rem; /* Mais espaçamento interno */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Coluna do Formulário --- */
+.form-column {
+  background-color: var(--cor-card);
+}
+
+/* Estilo da Marca "Sincro-Ordo" */
+.header h1 {
+  font-size: 2.5em; /* Ajuste o tamanho da fonte se necessário */
+  font-weight: bold; /* Deixa em negrito */
+  margin-bottom: 10px;
+}
+
+.sincro-text {
+  color: #ff6347; /* Exemplo de cor vermelha/coral. Ajuste conforme sua imagem. */
+}
+
+.ordo-text {
+  color: #000; /* Preto. Ajuste se precisar de outro tom. */
+}
+
+.auth-content h2 {
+  font-size: 2.2rem; /* Aumenta o título */
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-content p {
+  font-size: 1.05rem; /* Levemente maior */
+  color: var(--cor-texto-secundario);
+  margin-bottom: 2.5rem; /* Mais espaçamento */
+}
+
+.auth-form-group {
+  position: relative;
+  margin-bottom: 1.5rem; /* Mais espaçamento */
+}
+
+.auth-form-group i {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cor-texto-secundario);
+  font-size: 1.1rem; /* Ícones um pouco maiores */
+}
+
+.auth-form-group input {
+  width: 100%;
+  padding: 1.1rem 1rem 1.1rem 3.7rem; /* Padding ajustado para o ícone */
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px; /* Cantos mais arredondados */
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--cor-fundo); /* Fundo levemente off-white */
+  color: var(--cor-texto);
+}
+
+.auth-form-group input::placeholder {
+    color: var(--cor-texto-secundario);
+    opacity: 0.7; /* Suaviza o placeholder */
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: var(--cor-azul);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15); /* Sombra mais pronunciada no foco */
+  background-color: var(--cor-card); /* Volta para branco no foco */
+}
+
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  font-size: 0.95rem; /* Levemente maior */
+}
+
+.auth-checkbox {
+  display: flex;
+  align-items: flex-start; /* Alinha o texto ao topo */
+  gap: 0.6rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+  margin-bottom: 0.5rem; /* Adiciona espaçamento inferior */
+}
+.auth-checkbox input {
+  width: 18px; /* Tamanho do checkbox */
+  height: 18px;
+  accent-color: var(--cor-azul); /* Cor do checkbox */
+}
+
+.auth-link {
+  color: var(--cor-azul);
+  text-decoration: none;
+  font-weight: 600; /* Mais negrito */
+  transition: color 0.3s ease;
+}
+.auth-link:hover {
+  color: #2980b9; /* Um tom mais escuro de azul no hover */
+}
+.auth-link.bold {
+  font-weight: 700;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1.1rem; /* Mais padding */
+  border: none;
+  border-radius: 12px; /* Cantos mais arredondados */
+  background-color: var(--cor-azul);
+  color: white;
+  font-size: 1.1rem; /* Texto maior no botão */
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 15px rgba(52, 152, 219, 0.2); /* Sombra para o botão */
+}
+
+.auth-button:hover {
+  background-color: #2980b9; /* Tom mais escuro no hover */
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.auth-button:disabled {
+  background-color: #bdc3c7; /* Cinza suave para desabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.auth-social {
+  text-align: center;
+  margin-top: 2rem; /* Mais espaçamento */
+  color: var(--cor-texto-secundario);
+  position: relative;
+}
+/* Linha "Ou entre com" */
+.auth-social::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background-color: var(--cor-borda);
+    z-index: 1;
+}
+.auth-social p {
+    background-color: var(--cor-card);
+    display: inline-block;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}
+
+.auth-social-icons {
+  margin-top: 1.5rem; /* Mais espaçamento */
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Espaço entre ícones */
+}
+.auth-social-icons .social-icon {
+  display: inline-flex; /* Usar flex para centralizar melhor */
+  width: 48px; /* Maiores */
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.auth-social-icons .social-icon:hover {
+  background-color: var(--cor-fundo);
+  border-color: var(--cor-azul);
+  color: var(--cor-azul);
+}
+.social-icon .fab.fa-google { color: var(--cor-google); }
+.social-icon .fab.fa-facebook-f { color: var(--cor-facebook); }
+
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+.auth-error {
+  margin-top: 0; /* Remove o espaçamento superior */
+  margin-bottom: 1.2rem; /* Mantém o espaçamento inferior */
+  padding-left: 0.25rem;
+}
+.auth-error small {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+
+/* --- Coluna da Ilustração --- */
+.illustration-column {
+  background: var(--cor-gradient-primario); /* Degradê azul */
+  color: #fff;
+  text-align: center;
+  padding: 3.5rem;
+  border-radius: 18px 0 0 18px; /* Arredondamento */
+  display: flex; /* Para centralizar conteúdo */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-column img {
+  max-width: 90%; /* Aumenta a imagem */
+  height: auto;
+  margin-bottom: 2.5rem;
+  object-fit: contain;
+}
+
+.illustration-column h3 {
+  font-size: 2rem; /* Título maior */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.illustration-column p {
+  font-size: 1.15rem; /* Texto maior */
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Inverte o border-radius para a tela de Registro */
+.flex-row-reverse .illustration-column {
+  border-radius: 0 18px 18px 0;
+}
+.flex-row-reverse .form-column {
+  border-radius: 18px 0 0 18px;
+}
+
+/* Fundo alternativo para a ilustração do Registro */
+.illustration-column.alt {
+    background: var(--cor-gradient-secundario); /* Degradê suave */
+    color: var(--cor-texto);
+}
+.illustration-column.alt p {
+    color: var(--cor-texto-secundario);
+}
+
+
+/* Responsividade */
+@media (max-width: 992px) { /* Tablet e mobile */
+  .auth-card {
+    flex-direction: column;
+    max-width: 550px;
+    margin: 0 auto; /* Centraliza o card */
+  }
+  .flex-row-reverse {
+    flex-direction: column; /* Manter na mesma ordem visual */
+  }
+  .auth-column {
+    padding: 2.5rem; /* Reduz padding em telas menores */
+  }
+  .illustration-column {
+    display: none; /* Esconde a ilustração em telas menores para otimizar espaço */
+  }
+  .auth-card,
+  .flex-row-reverse .illustration-column,
+  .flex-row-reverse .form-column {
+    border-radius: 20px; /* Arredonda todo o card */
+  }
+}
+
+@media (max-width: 576px) { /* Mobile */
+  .auth-container {
+    padding: 1rem;
+  }
+  .auth-content h2 {
+    font-size: 1.8rem;
+  }
+  .auth-content p {
+    font-size: 0.95rem;
+  }
+  .app-brand {
+    font-size: 1.8rem;
+  }
+  .auth-checkbox {
+    gap: 0.4rem; /* Ajusta o espaçamento no mobile */
+  }
+}

@@ -1,0 +1,91 @@
+<div class="auth-container">
+    <div class="auth-card flex-row-reverse">
+
+        <div class="auth-column form-column">
+            <div class="auth-content">
+               <div class="header">
+  <h1>
+    <span class="sincro-text">Sincro</span><span class="ordo-text">- Ordo</span>
+  </h1>
+  <p>Crie sua conta</p>
+  <p>É rápido e fácil, vamos começar sua jornada de organização.</p>
+</div>
+                <h2>Crie sua conta</h2>
+                <p>É rápido e fácil, vamos começar sua jornada de organização.</p>
+
+                <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Primeiro Nome" formControlName="firstName">
+                    </div>
+                    <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="auth-error">
+                        <small *ngIf="firstName?.errors?.['required']">Nome é obrigatório.</small>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Último Nome" formControlName="lastName">
+                    </div>
+                    <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="auth-error">
+                        <small *ngIf="lastName?.errors?.['required']">Último nome é obrigatório.</small>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-at"></i>
+                        <input type="text" placeholder="Usuário" formControlName="username">
+                    </div>
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="auth-error">
+                        <small *ngIf="username?.errors?.['required']">Usuário é obrigatório.</small>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" formControlName="email">
+                    </div>
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="auth-error">
+                        <small *ngIf="email?.errors?.['required']">Email é obrigatório.</small>
+                        <small *ngIf="email?.errors?.['email']">Email inválido.</small>
+                    </div>
+
+                    <div formGroupName="passwordGroup">
+                        <div class="auth-form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Senha" formControlName="password">
+                        </div>
+                        <div class="auth-form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Confirmar Senha" formControlName="confirmPassword">
+                        </div>
+                    </div>
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="auth-error">
+                        <small *ngIf="password?.errors?.['minlength']">Senha precisa de 6+ caracteres.</small>
+                    </div>
+                    <div *ngIf="passwordGroup?.errors?.['passwordsMismatch'] && confirmPassword?.dirty" class="auth-error">
+                        <small>As senhas não são iguais.</small>
+                    </div>
+
+                    <div class="auth-checkbox">
+                        <input type="checkbox" id="terms" formControlName="agreeTerms">
+                        <label for="terms">Eu aceito os termos e condições</label>
+                    </div>
+                    <div *ngIf="agreeTerms?.invalid && agreeTerms?.touched" class="auth-error">
+                        <small>Você deve aceitar os termos.</small>
+                    </div>
+
+                    <button type="submit" class="auth-button" [disabled]="registerForm.invalid">Criar Conta</button>
+
+                    <p class="auth-footer">
+                        Já tem uma conta? <a routerLink="/login" class="auth-link bold">Faça Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="auth-column illustration-column alt">
+            <img src="\assets\images\passport_5151628.png" alt="Sincro-Ordo Register Illustration">
+            <h3>Comece a organizar sua vida agora.</h3>
+            <p>Sincronize suas tarefas, ordene seu dia a dia e alcance seus objetivos.</p>
+        </div>
+    </div>
+</div>
