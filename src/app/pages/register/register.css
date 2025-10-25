@@ -5,7 +5,7 @@
 /* Variáveis de Cores Atualizadas */
 :root {
   --cor-vermelho: #e74c3c;
-  --cor-texto-secundario: #6c757d; /* Exemplo para a cor do texto do checkbox */
+  --cor-texto-secundario: #006fcf; /* Exemplo para a cor do texto do checkbox */
 }
 :root {
   --cor-fundo: #f0f4f8;       /* Fundo cinza azulado suave */
@@ -27,7 +27,8 @@ body, html {
     font-family: 'Inter', sans-serif; /* APLICANDO A NOVA FONTE */
     line-height: 1.6;
     color: var(--cor-texto);
-    overflow: hidden; /* Impede o scroll vertical */
+    height: 100%;                /* Garante 100% de altura para a viewport */
+    overflow: auto;              /* Permite scroll quando necessário (no mobile) */
 }
 
 .auth-container {
@@ -50,6 +51,9 @@ body, html {
   border-radius: 20px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1); /* Sombra mais suave e espalhada */
   overflow: hidden;
+
+  /* Evita que a página toda role: limita altura do card e deixa colunas rolarem internamente */
+  max-height: calc(100vh - 3.5rem);
 }
 
 .flex-row-reverse {
@@ -62,6 +66,9 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
 }
 
 /* --- Coluna do Formulário --- */
@@ -71,17 +78,23 @@ body, html {
 
 /* Estilo da Marca "Sincro-Ordo" */
 .header h1 {
-  font-size: 2.5em; /* Ajuste o tamanho da fonte se necessário */
-  font-weight: bold; /* Deixa em negrito */
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin: 0 0 0.35rem 0;
+  line-height: 1;
 }
 
+/* substituir uso direto de var(--cor-azul) por variável da marca */
 .sincro-text {
-  color: #ff6347; /* Exemplo de cor vermelha/coral. Ajuste conforme sua imagem. */
+  /* ...existing code... */
+  color: var(--cor-sincro);
+  font-weight: 800;
 }
 
 .ordo-text {
-  color: #000; /* Preto. Ajuste se precisar de outro tom. */
+  /* ...existing code... */
+  color: var(--cor-ordo);
+  margin-left: 0.2rem;
+  font-weight: 700;
 }
 
 .auth-content h2 {
@@ -145,16 +158,31 @@ body, html {
 
 .auth-checkbox {
   display: flex;
-  align-items: flex-start; /* Alinha o texto ao topo */
+  align-items: center; /* Alinha verticalmente checkbox e label */
   gap: 0.6rem;
   color: var(--cor-texto-secundario);
   line-height: 1.2; /* Ajusta o espaçamento entre linhas */
   margin-bottom: 0.5rem; /* Adiciona espaçamento inferior */
+  flex-wrap: wrap; /* Permite que o label quebre em várias linhas e não sobreponha a mensagem de erro */
 }
 .auth-checkbox input {
   width: 18px; /* Tamanho do checkbox */
   height: 18px;
   accent-color: var(--cor-azul); /* Cor do checkbox */
+}
+
+.auth-checkbox label {
+  display: inline-block;
+  margin: 0;
+  max-width: calc(100% - 28px); /* Evita que o label ultrapasse o container */
+  word-break: break-word;       /* Quebra palavras longas se necessário */
+  font-size: 0.95rem;
+}
+
+/* Mensagem de erro logo abaixo do checkbox (não sobrepor) */
+.auth-checkbox + .auth-error {
+  margin-top: 0.35rem;
+  margin-bottom: 1rem;
 }
 
 .auth-link {
@@ -176,7 +204,7 @@ body, html {
   border: none;
   border-radius: 12px; /* Cantos mais arredondados */
   background-color: var(--cor-azul);
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 1.1rem; /* Texto maior no botão */
   font-weight: 700;
   cursor: pointer;
@@ -190,7 +218,7 @@ body, html {
 }
 
 .auth-button:disabled {
-  background-color: #bdc3c7; /* Cinza suave para desabilitado */
+  background-color: #c75b5b; /* Cinza suave para desabilitado */
   cursor: not-allowed;
   box-shadow: none;
 }

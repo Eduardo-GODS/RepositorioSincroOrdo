@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+/* Em src/styles.css */
+
+:root {
+  /* Cores da marca centralizadas */
+  --cor-sincro: #da614b; /* cor principal do "Sincro" — ajuste se necessário */
+  --cor-ordo:   #111827; /* cor do "Ordo" — ajuste se necessário */
+
+  /* Mantém outras variáveis globais já usadas no projeto */
+  --cor-azul: #3498db;
+  --cor-fundo: #f0f4f8;
+  --cor-card: #ffffff;
+  --cor-texto: #2c3e50;
+  --cor-texto-secundario: #7f8c8d;
+  --cor-borda: #dfe4ea;
+  --cor-erro: #e74c3c;
+}
+
+/* Força a aplicação consistente da cor da marca em qualquer lugar */
+.sincro-text {
+  color: var(--cor-sincro) !important;
+  font-weight: 800;
+}
+
+.ordo-text {
+  color: var(--cor-ordo) !important;
+  margin-left: 0.2rem;
+  font-weight: 700;
+}
+
+html, body {
+  width: 100%;          /* Garante que não tentem ser maiores que a tela */
+  overflow-x: hidden; /* **Esconde a barra de rolagem horizontal** */
+  margin: 0;            /* Remove margens padrão */
+  padding: 0;           /* Remove paddings padrão */
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ... resto do seu styles.css ... */
+/* No seu arquivo de estilo global (ex: src/styles.css) */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Mantém a regra para a barra horizontal */
+  overflow-y: hidden; /* **Adiciona esta linha para a barra vertical** */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* ... resto do seu styles.css ... */

@@ -1,0 +1,48 @@
+/* Exemplo básico em app.css ou styles.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333; /* Cor de fundo escura */
+  color: white;
+  height: 60px; /* Altura fixa como exemplo */
+}
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  padding: 0.5rem 0;
+}
+.nav-links a:hover,
+.nav-links a.active-link { /* Estilo do link ativo */
+  border-bottom: 2px solid var(--cor-azul); /* Usa a cor azul definida antes */
+  color: var(--cor-azul);
+}
+/* Em src/styles.css */
+
+html, body {
+  width: 100%;          /* Garante que não tentem ser maiores que a tela */
+  overflow-x: hidden; /* **Esta é a linha chave: Esconde a barra de rolagem horizontal** */
+  margin: 0;            /* Remove margens padrão que podem causar overflow */
+  padding: 0;           /* Remove paddings padrão */
+  box-sizing: border-box; /* Garante que padding/border não aumentem o tamanho total */
+}
+
+/* É bom adicionar isso também para garantir que todos os elementos herdem o box-sizing */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Defina suas variáveis globais aqui se ainda não o fez */
+:root {
+   --cor-azul: #3498db;
+   /* ... outras variáveis ... */
+}
+
+/* Restante do seu styles.css (se houver) */
+/* Ex: body { font-family: 'Inter', sans-serif; } */

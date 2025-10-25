@@ -1,0 +1,19 @@
+/* Dentro de register.css (verifique se já existe) */
+.header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* Remova text-align: center; se houver, para alinhar à esquerda como na imagem */
+}
+
+.sincro-text {
+  /* substituir cor fixa por variável global */
+  color: var(--cor-sincro);
+}
+
+.ordo-text {
+  color: var(--cor-ordo);
+}
+
+/* Garanta que os estilos para .auth-container, .auth-card, .auth-column,
+   .illustration-column (sem a classe .alt), .form-column, etc. existam */

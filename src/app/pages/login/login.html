@@ -1,0 +1,45 @@
+<div class="auth-container">
+    <div class="auth-card"> <div class="auth-column illustration-column">
+            <img src="assets/images/cadastro.png" alt="Ilustração Login Sincro-Ordo"> <h3>Bem-vindo de volta!</h3>
+            <p>Acesse sua conta para continuar organizando suas tarefas.</p>
+        </div>
+        <div class="auth-column form-column">
+            <div class="auth-content">
+                <div class="app-brand header">
+                    <h1>
+                        <span class="sincro-text">Sincro</span><span class="ordo-text">-Ordo</span>
+                    </h1>
+                </div>
+                <h2>Faça seu Login</h2>
+                <p>Insira suas credenciais para acessar a plataforma.</p>
+
+                <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" formControlName="email">
+                    </div>
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="auth-error">
+                        <small *ngIf="email?.errors?.['required']">Email é obrigatório.</small>
+                        <small *ngIf="email?.errors?.['email']">Formato de email inválido.</small>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Senha" formControlName="password">
+                    </div>
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="auth-error">
+                        <small *ngIf="password?.errors?.['required']">Senha é obrigatória.</small>
+                    </div>
+
+                    <button type="submit" class="auth-button" [disabled]="loginForm.invalid">Entrar</button>
+
+                    <p class="auth-footer">
+                        Não tem uma conta? <a routerLink="/register" class="auth-link bold">Cadastre-se</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+        </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="home-container">
+  <div class="home-card">
+    <div class="home-header">
+      <h2>Minhas Tarefas</h2>
+      <p>Sua lista de tarefas pendentes e concluídas.</p>
+    </div>
+
+    <div class="task-list">
+      <div *ngIf="tarefas.length === 0" class="no-tasks">
+        Nenhuma tarefa encontrada.
+      </div>
+
+      <div *ngFor="let tarefa of tarefas" class="task-item" [class.concluida]="tarefa.concluida">
+        <div class="task-info">
+          <input type="checkbox"
+                 [checked]="tarefa.concluida"
+                 (change)="toggleTarefa(tarefa)"
+                 [id]="'tarefa-' + tarefa.id">
+          <label [for]="'tarefa-' + tarefa.id">{{ tarefa.titulo }}</label>
+        </div>
+        </div>
+    </div>
+
+  </div>
+</div>

@@ -1,7 +1,9 @@
+// Arquivo: src/app/pages/register/register.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router'; // Importa Router aqui
 
 @Component({
   selector: 'app-register',
@@ -12,12 +14,13 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   templateUrl: './register.html',
-  styleUrls: ['./register.css'], // Corrigido o nome do arquivo
+  styleUrls: ['./register.css']
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  // Injete o Router aqui
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -51,10 +54,16 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
+      console.log('Formulário de registro inválido.');
       return;
     }
 
-    // enviar para o backend / serviço
+
+    // Simula o envio para o backend / serviço
     console.log('Registro enviado:', this.registerForm.value);
+
+    // Navega para a página de login após o "sucesso"
+    alert('Registro simulado com sucesso! Redirecionando para Login...'); // Opcional
+    this.router.navigate(['/login']); // Navega para a rota '/login'
   }
 }
